@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PropsType from 'props-type';
+import PropTypes from 'prop-types';
 
 export default function TextComponent({ text }) {
   const [textInput, setTextInput] = useState('');
@@ -7,9 +7,24 @@ export default function TextComponent({ text }) {
     setTextInput(text);
   }, [text]);
   return (
-    <div style={{ width: '90%', boderRadius: '3px', height: '30px' }}>{textInput}</div>
+    <div
+      placeholder="Search Band"
+      style={{
+        width: '95%',
+        boderRadius: '10px',
+        height: '20px',
+        border: '1px solid #ccc',
+        background: 'white',
+        textAlign: 'center',
+        margin: 'auto',
+        marginTop: '3px',
+        marginBottom: '3px',
+      }}
+    >
+      {textInput}
+    </div>
   );
 }
 TextComponent.propTypes = {
-  text: PropsType.string.isRequired,
+  text: PropTypes.string.isRequired,
 };

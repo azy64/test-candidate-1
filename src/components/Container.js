@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import InputComponent from './InputComponent';
 import TextComponent from './TextComponent';
 
 export default function Container() {
+  const state = useSelector((state) => state.album);
+  console.log('voici le state', state);
   const [list, setList] = useState([]);
   const tab = ['A', 'B', 'C', 'D', 'E'];
   const displayElement = () => {
@@ -21,7 +24,7 @@ export default function Container() {
   };
   useEffect(() => {
     if (list.length === 0) { displayElement(); }
-    setInterval(change, 1500);
+    setInterval(change, 4500);
   }, [list]);
   return (
     <div style={{ width: '400px', margin: 'auto' }}>

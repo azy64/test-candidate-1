@@ -1,10 +1,14 @@
+import { Provider } from 'react-redux';
 import Container from './components/Container';
+import store from './redux/Store';
 
 function App() {
   return (
-    <div className="App">
-      <Container />
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Container />
+      </div>
+    </Provider>
   );
 }
 
